@@ -17,6 +17,55 @@ public class Test_ListEmotions {
         System.out.println("Test .... Test_PredominantJoy_predominantEmotion ... ");
         List<Emotion> testLstEmotions = new ArrayList<Emotion>();
         List lEmotions = new ArrayList<Emotion>();
+        Emotion eJ = new Emotion("Joy", EmotionType.Joy);
+        lEmotions.add(eJ);
+        ListEmotions le = new ListEmotions(lEmotions);
+
+        List<Emotion> lstPE = le.predominantEmotion();
+        //System.out.println("Number of Predominant Emotions="+lstPE.size());
+        assertEquals(lstPE.size(), 1);
+    }
+
+    @Test
+    public void Test_EqualAppearance_predominantEmotion(){
+        System.out.println("Test .... Test_PredominantJoy_predominantEmotion ... ");
+        List<Emotion> testLstEmotions = new ArrayList<Emotion>();
+        List lEmotions = new ArrayList<Emotion>();
+        Emotion eA = new Emotion("Anger", EmotionType.Anger);
+        lEmotions.add(eA);
+        Emotion eS = new Emotion("Sadness", EmotionType.Sadness);
+        lEmotions.add(eS);
+        ListEmotions le = new ListEmotions(lEmotions);
+
+        List<Emotion> lstPE = le.predominantEmotion();
+        //System.out.println("Number of Predominant Emotions="+lstPE.size());
+        assertEquals(lstPE.size(), 2);
+    }
+
+    @Test
+    public void Test_MultipleAppearances_predominantEmotion(){
+        System.out.println("Test .... Test_PredominantJoy_predominantEmotion ... ");
+        List<Emotion> testLstEmotions = new ArrayList<Emotion>();
+        List lEmotions = new ArrayList<Emotion>();
+        Emotion eA = new Emotion("Anger", EmotionType.Anger);
+        lEmotions.add(eA);
+        lEmotions.add(eA);
+        lEmotions.add(eA);
+        lEmotions.add(eA);
+        Emotion eS = new Emotion("Sadness", EmotionType.Sadness);
+        lEmotions.add(eS);
+        ListEmotions le = new ListEmotions(lEmotions);
+
+        List<Emotion> lstPE = le.predominantEmotion();
+        //System.out.println("Number of Predominant Emotions="+lstPE.size());
+        assertEquals(lstPE.size(), 1);
+    }
+
+    @Test
+    public void Test_NoEmotions_predominantEmotion(){
+        System.out.println("Test .... Test_PredominantJoy_predominantEmotion ... ");
+        List<Emotion> testLstEmotions = new ArrayList<Emotion>();
+        List lEmotions = new ArrayList<Emotion>();
         ListEmotions le = new ListEmotions(lEmotions);
 
         List<Emotion> lstPE = le.predominantEmotion();
